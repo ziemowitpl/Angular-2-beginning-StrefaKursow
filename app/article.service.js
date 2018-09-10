@@ -1,4 +1,4 @@
-System.register(['angular2/core', './article.component'], function(exports_1, context_1) {
+System.register(['./article-data', 'angular2/core'], function(exports_1, context_1) {
     "use strict";
     var __moduleName = context_1 && context_1.id;
     var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -10,33 +10,31 @@ System.register(['angular2/core', './article.component'], function(exports_1, co
     var __metadata = (this && this.__metadata) || function (k, v) {
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
     };
-    var core_1, article_component_1;
-    var AppComponent;
+    var article_data_1, core_1;
+    var ArticleService;
     return {
         setters:[
+            function (article_data_1_1) {
+                article_data_1 = article_data_1_1;
+            },
             function (core_1_1) {
                 core_1 = core_1_1;
-            },
-            function (article_component_1_1) {
-                article_component_1 = article_component_1_1;
             }],
         execute: function() {
-            AppComponent = (function () {
-                function AppComponent() {
+            ArticleService = (function () {
+                function ArticleService() {
                 }
-                AppComponent = __decorate([
-                    core_1.Component({
-                        selector: 'articles',
-                        directives: [article_component_1.ArticleComponent],
-                        templateUrl: 'app/app.component.html'
-                    }), 
+                ArticleService.prototype.getArticles = function () {
+                    return article_data_1.ARTICLES;
+                };
+                ArticleService = __decorate([
+                    core_1.Injectable(), 
                     __metadata('design:paramtypes', [])
-                ], AppComponent);
-                return AppComponent;
+                ], ArticleService);
+                return ArticleService;
             }());
-            exports_1("AppComponent", AppComponent);
+            exports_1("ArticleService", ArticleService);
         }
     }
 });
-// npm start
-//# sourceMappingURL=app.component.js.map
+//# sourceMappingURL=article.service.js.map
