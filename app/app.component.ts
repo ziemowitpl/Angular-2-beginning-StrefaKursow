@@ -11,7 +11,8 @@ import {ArticleComponent} from './article.component';
 })
 
 export class AppComponent {
-   
+   articles: Article[];
+   articles = ARTICLES;
 }
 // npm start
 

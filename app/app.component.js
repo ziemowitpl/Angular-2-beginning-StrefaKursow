@@ -26,6 +26,7 @@ System.register(['angular2/core', './article', './article.component'], function(
         execute: function() {
             AppComponent = (function () {
                 function AppComponent() {
+                    this.articles = ARTICLES;
                 }
                 AppComponent = __decorate([
                     core_1.Component({

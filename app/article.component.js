@@ -24,6 +24,10 @@ System.register(['angular2/core'], function(exports_1, context_1) {
                 ArticleComponent = __decorate([
                     core_1.Component({
                         selector: 'single-article',
+                        inputs: ['article'],
+                        host: {
+                            class: 'singlearticle'
+                        },
                         templateUrl: 'app/article.component.html'
                     }), 
                     __metadata('design:paramtypes', [])
