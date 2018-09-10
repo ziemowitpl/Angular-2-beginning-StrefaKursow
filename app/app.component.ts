@@ -8,11 +8,20 @@ import {ArticleService} from './article.service';
 @Component({
     selector: 'articles',
     directives: [ArticleComponent],
+    providers: [ArticleService],
     templateUrl: 'app/app.component.html'
 })
 
 export class AppComponent {
    articles: Article[];
+
+   constructor(private _articleService: ArticleService) {
+
+   }
+
+   getArticles() {
+       this.articles = this._articleService.getArticles();
+   }
  
 }
 // npm start

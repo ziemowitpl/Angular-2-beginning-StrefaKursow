@@ -1,4 +1,4 @@
-System.register(['angular2/core', './article.component'], function(exports_1, context_1) {
+System.register(['angular2/core', './article.component', './article.service'], function(exports_1, context_1) {
     "use strict";
     var __moduleName = context_1 && context_1.id;
     var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -10,7 +10,7 @@ System.register(['angular2/core', './article.component'], function(exports_1, co
     var __metadata = (this && this.__metadata) || function (k, v) {
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
     };
-    var core_1, article_component_1;
+    var core_1, article_component_1, article_service_1;
     var AppComponent;
     return {
         setters:[
@@ -19,18 +19,26 @@ System.register(['angular2/core', './article.component'], function(exports_1, co
             },
             function (article_component_1_1) {
                 article_component_1 = article_component_1_1;
+            },
+            function (article_service_1_1) {
+                article_service_1 = article_service_1_1;
             }],
         execute: function() {
             AppComponent = (function () {
-                function AppComponent() {
+                function AppComponent(_articleService) {
+                    this._articleService = _articleService;
                 }
+                AppComponent.prototype.getArticles = function () {
+                    this.articles = this._articleService.getArticles();
+                };
                 AppComponent = __decorate([
                     core_1.Component({
                         selector: 'articles',
                         directives: [article_component_1.ArticleComponent],
+                        providers: [article_service_1.ArticleService],
                         templateUrl: 'app/app.component.html'
                     }), 
-                    __metadata('design:paramtypes', [])
+                    __metadata('design:paramtypes', [article_service_1.ArticleService])
                 ], AppComponent);
                 return AppComponent;
             }());
