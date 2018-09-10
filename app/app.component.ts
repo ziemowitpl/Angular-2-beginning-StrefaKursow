@@ -5,7 +5,7 @@ import {Article} from './article';
 
 @Component({
     selector: 'articles',
-    template: ``
+    templateUrl: 'app/app.component.html'
 })
 
 export class AppComponent {
