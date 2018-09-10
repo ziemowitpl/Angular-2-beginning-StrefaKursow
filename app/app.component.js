@@ -31,6 +31,9 @@ System.register(['angular2/core', './article.component', './article.service'], f
                 AppComponent.prototype.getArticles = function () {
                     this.articles = this._articleService.getArticles();
                 };
+                AppComponent.prototype.ngOnInit = function () {
+                    this.getArticles();
+                };
                 AppComponent = __decorate([
                     core_1.Component({
                         selector: 'articles',
