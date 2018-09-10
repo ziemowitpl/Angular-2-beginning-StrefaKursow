@@ -1,4 +1,4 @@
-System.register(['angular2/core', './product'], function(exports_1, context_1) {
+System.register(['angular2/core'], function(exports_1, context_1) {
     "use strict";
     var __moduleName = context_1 && context_1.id;
     var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -10,40 +10,29 @@ System.register(['angular2/core', './product'], function(exports_1, context_1) {
     var __metadata = (this && this.__metadata) || function (k, v) {
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
     };
-    var core_1, product_1;
-    var AppComponent, product;
+    var core_1;
+    var AppComponent;
     return {
         setters:[
             function (core_1_1) {
                 core_1 = core_1_1;
-            },
-            function (product_1_1) {
-                product_1 = product_1_1;
             }],
         execute: function() {
             AppComponent = (function () {
                 function AppComponent() {
-                    this.days = ['Poniedziałek', 'Wtorek', 'Środa'];
                 }
                 AppComponent = __decorate([
                     core_1.Component({
                         selector: 'articles',
-                        template: "\n    <ul>\n        <li *ngFor = \"#day of days\">{{ day }}</li>\n    </ul>\n    "
+                        template: ""
                     }), 
                     __metadata('design:paramtypes', [])
                 ], AppComponent);
                 return AppComponent;
             }());
             exports_1("AppComponent", AppComponent);
-            // npm start
-            product = new product_1.Product(123, 'Kurs ABC', 80);
-            /*
-            product.id = 1;
-            product.title = 'Kurs';
-            product.price = 80;
-            */
-            product.showProduct();
         }
     }
 });
+// npm start
 //# sourceMappingURL=app.component.js.map
