@@ -13,6 +13,12 @@ System.register([], function(exports_1, context_1) {
                     this.image = image;
                     this.votes = votes || 0;
                 }
+                Article.prototype.votePlus = function () {
+                    this.votes += 1;
+                };
+                Article.prototype.voteMinus = function () {
+                    this.votes -= 1;
+                };
                 return Article;
             }());
             exports_1("Article", Article);

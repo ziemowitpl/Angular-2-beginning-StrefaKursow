@@ -21,6 +21,14 @@ System.register(['angular2/core'], function(exports_1, context_1) {
             ArticleComponent = (function () {
                 function ArticleComponent() {
                 }
+                ArticleComponent.prototype.votePlus = function () {
+                    this.article.votePlus();
+                    return false;
+                };
+                ArticleComponent.prototype.voteMinus = function () {
+                    this.article.voteMinus();
+                    return false;
+                };
                 ArticleComponent = __decorate([
                     core_1.Component({
                         selector: 'single-article',

@@ -11,5 +11,15 @@ import {Article} from './article';
 })
 
 export class ArticleComponent {
+    article: Article;
 
+    votePlus() : boolean {
+        this.article.votePlus();
+        return false;
+    }
+
+    voteMinus() : boolean {
+        this.article.voteMinus();
+        return false;
+    }
 }
