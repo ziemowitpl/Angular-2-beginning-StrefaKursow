@@ -22,8 +22,10 @@
               <label>Obrazek (link):</label>
               <input type="text" name="image" [ngFormControl]="articleForm.controls['image']" />
           </div>
-          <button type="submit" class="positive ui large button">Dodaj</button>
+          <button type="submit" class="positive ui large button" [ngClass]="{disabled: !articleForm.valid}">Dodaj</button>
           <!-- potrzebny przycisk zamiast div aby dzialalo -->
+          <!-- blokumy przycisk dodaj dopoki uzytkownik nie wysle wszystkich danych - walidacja..., korzystamy z Frameworku Semantic UI i dodajemy do przycisku klase disabled ale musimy dodac ta klase warunkowo za pomoca Angular -->
+          <!-- dodajemy dyrektywe ngClass i dodajemy klase z Frameworka disabled i warunek jesli formularz nie jest zwalidowany (!articleForm.valid) -->
         </div>
     </form>
 </div>

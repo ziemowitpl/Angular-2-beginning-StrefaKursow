@@ -1,12 +1,13 @@
 import {Component} from 'angular2/core';
 import {OnInit} from 'angular2/core';
-import {NgFor, FORM_DIRECTIVES, FormBuilder, Validators, ControlGroup, Control} from 'angular2/common';
+import {NgFor, FORM_DIRECTIVES, FormBuilder, Validators, ControlGroup, Control, NgClass} from 'angular2/common';
 // Importujemy rzeczy potrzebne do stworzenia formularzy
 // FORM_DIRECTIVES - stala zawiera dyrektywy formularza
 // FormBuilder - pomocnicza praca ulatwiajaca budowanie formularzy
 // Validators - walidacja formularzy
 // ControlGroup - grupa kontrolek zbior wszystkich pol w formularzu
 // Control - pojedyncze kontrolki
+// NgClass - dyrektywa warunkowego dodania klasy
 import {Article} from './article';
 import {ArticleComponent} from './article.component';
 import {ArticleService} from './article.service';
@@ -14,7 +15,8 @@ import {ArticleService} from './article.service';
 
 @Component({
     selector: 'articles',
-    directives: [ArticleComponent, FORM_DIRECTIVES],
+    // dodajemy NgClass i teraz mozemy uzywac klase w app.component.html
+    directives: [ArticleComponent, FORM_DIRECTIVES, NgClass],
     providers: [ArticleService],
     templateUrl: 'app/app.component.html'
 })
@@ -26,10 +28,13 @@ export class AppComponent implements OnInit {
 //    tworzymy articleForm i przypisujemy ControlGroup (grupa kontrolek)
 
     // definujemy kontrolki - pola formularza
-    title: Control = new Control();
-    link: Control = new Control();
-    description: Control = new Control();
-    image: Control = new Control();
+    // w nawiasie konfigurujemy 4 wymagane pola
+    // "" domyslna wartosc - pusta, walidatory:pole wymagane
+    // jeszcze musimy to zaimplementowac w formularzu (po stronie szablonu) bo to nie wystarczy, przechodzimy do app.component.html
+    title: Control = new Control("", Validators.required);
+    link: Control = new Control("", Validators.required);
+    description: Control = new Control("", Validators.required);
+    image: Control = new Control("", Validators.required);
 
    constructor(private _articleService: ArticleService, fb: FormBuilder) {
     // wstrzykiwanie zaleznosci

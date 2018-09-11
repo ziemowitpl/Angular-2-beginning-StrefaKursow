@@ -35,10 +35,13 @@ System.register(['angular2/core', 'angular2/common', './article', './article.com
                     this._articleService = _articleService;
                     //    tworzymy articleForm i przypisujemy ControlGroup (grupa kontrolek)
                     // definujemy kontrolki - pola formularza
-                    this.title = new common_1.Control();
-                    this.link = new common_1.Control();
-                    this.description = new common_1.Control();
-                    this.image = new common_1.Control();
+                    // w nawiasie konfigurujemy 4 wymagane pola
+                    // "" domyslna wartosc - pusta, walidatory:pole wymagane
+                    // jeszcze musimy to zaimplementowac w formularzu (po stronie szablonu) bo to nie wystarczy, przechodzimy do app.component.html
+                    this.title = new common_1.Control("", common_1.Validators.required);
+                    this.link = new common_1.Control("", common_1.Validators.required);
+                    this.description = new common_1.Control("", common_1.Validators.required);
+                    this.image = new common_1.Control("", common_1.Validators.required);
                     // wstrzykiwanie zaleznosci
                     // instancja komponetu, uslugi artykolow fb: FormBuilder
                     // grupujemy 4 kontrolki
@@ -78,7 +81,8 @@ System.register(['angular2/core', 'angular2/common', './article', './article.com
                 AppComponent = __decorate([
                     core_1.Component({
                         selector: 'articles',
-                        directives: [article_component_1.ArticleComponent, common_1.FORM_DIRECTIVES],
+                        // dodajemy NgClass i teraz mozemy uzywac klase w app.component.html
+                        directives: [article_component_1.ArticleComponent, common_1.FORM_DIRECTIVES, common_1.NgClass],
                         providers: [article_service_1.ArticleService],
                         templateUrl: 'app/app.component.html'
                     }), 
