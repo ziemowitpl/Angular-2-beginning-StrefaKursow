@@ -27,6 +27,12 @@ export class AppComponent implements OnInit {
    articleForm: ControlGroup;
 //    tworzymy articleForm i przypisujemy ControlGroup (grupa kontrolek)
 
+
+    selectedArticle: Article;
+    // dodajemy implementacje z app.component.html tworzac nowy skladnik ktory bedzie przechowywyal aktualnie zaznaczony/wybrany artykul nazywajac go "selectedArticle" i wyznaczamy obiekt Article gdyz na raz bedzie zaznaczony tylko jeden artykul
+
+
+
     // definujemy kontrolki - pola formularza
     // w nawiasie konfigurujemy 4 wymagane pola
     // "" domyslna wartosc - pusta, walidatory:pole wymagane
@@ -76,7 +82,15 @@ export class AppComponent implements OnInit {
     this.description.updateValue("");
     this.image.updateValue("");
    }
- 
+
+
+//    dodajemy metode onSelect z app.component.html, przyjmuje parament article i bedzie to obiekt typu Article i ta metoda bedzie wskazywala ze ten aktualny artykul top ten zaznaczony artykul ale teraz strona jest przeladowywana wiec wracamy do app.component.html
+// blokujemy event metoda preventDefault()
+// przechodzimy do app.component.html aby dodac klase odpowiadajaca za wyroznienie article w Semantic UI - frameworku.
+    onSelect(article: Article, event) {
+        event.preventDefault();
+        this.selectedArticle = article;
+    }
 }
 // npm start
 

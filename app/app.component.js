@@ -33,7 +33,7 @@ System.register(['angular2/core', 'angular2/common', './article', './article.com
             AppComponent = (function () {
                 function AppComponent(_articleService, fb) {
                     this._articleService = _articleService;
-                    //    tworzymy articleForm i przypisujemy ControlGroup (grupa kontrolek)
+                    // dodajemy implementacje z app.component.html tworzac nowy skladnik ktory bedzie przechowywyal aktualnie zaznaczony/wybrany artykul nazywajac go "selectedArticle" i wyznaczamy obiekt Article gdyz na raz bedzie zaznaczony tylko jeden artykul
                     // definujemy kontrolki - pola formularza
                     // w nawiasie konfigurujemy 4 wymagane pola
                     // "" domyslna wartosc - pusta, walidatory:pole wymagane
@@ -77,6 +77,13 @@ System.register(['angular2/core', 'angular2/common', './article', './article.com
                     this.link.updateValue("");
                     this.description.updateValue("");
                     this.image.updateValue("");
+                };
+                //    dodajemy metode onSelect z app.component.html, przyjmuje parament article i bedzie to obiekt typu Article i ta metoda bedzie wskazywala ze ten aktualny artykul top ten zaznaczony artykul ale teraz strona jest przeladowywana wiec wracamy do app.component.html
+                // blokujemy event metoda preventDefault()
+                // przechodzimy do app.component.html aby dodac klase odpowiadajaca za wyroznienie article w Semantic UI - frameworku.
+                AppComponent.prototype.onSelect = function (article, event) {
+                    event.preventDefault();
+                    this.selectedArticle = article;
                 };
                 AppComponent = __decorate([
                     core_1.Component({

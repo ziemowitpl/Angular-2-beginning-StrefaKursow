@@ -33,5 +33,9 @@
 </div>
 <div class="sk-main-list">
     <h3 class="sk-column-header">Najnowsze artykuły</h3>
-    <single-article *ngFor="#article of articles" [article]="article"></single-article>
+    <single-article class="ui segment" *ngFor="#article of articles" [article]="article" (click)="onSelect(article,$event)" [class.raised]="article===selectedArticle"></single-article>
+    <!-- przenosimy klasy "ui segment" z article.component.html -->
+    <!-- click wywołujemy metode onSelect na artykule i dodajemy implementacje w app.component.ts -->
+    <!-- dodajemy drugi parametr $event i przechodzimy do app.component.ts -->
+    <!-- z app.component.ts przechodzimy tu i w nawiasie kwadratowym dodajemy klase o nazwie raised (z Semantic UI - naszego Frameworku) i dodajemy dla niego regule: artykul aktualnie zaznaczony taki sam jak selectedArticle -->
 </div>
