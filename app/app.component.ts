@@ -1,6 +1,12 @@
 import {Component} from 'angular2/core';
 import {OnInit} from 'angular2/core';
-import {NgFor} from 'angular2/common';
+import {NgFor, FORM_DIRECTIVES, FormBuilder, Validators, ControlGroup, Control} from 'angular2/common';
+// Importujemy rzeczy potrzebne do stworzenia formularzy
+// FORM_DIRECTIVES - stala zawiera dyrektywy formularza
+// FormBuilder - pomocnicza praca ulatwiajaca budowanie formularzy
+// Validators - walidacja formularzy
+// ControlGroup - grupa kontrolek zbior wszystkich pol w formularzu
+// Control - pojedyncze kontrolki
 import {Article} from './article';
 import {ArticleComponent} from './article.component';
 import {ArticleService} from './article.service';
