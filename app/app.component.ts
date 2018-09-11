@@ -22,8 +22,27 @@ import {ArticleService} from './article.service';
 export class AppComponent implements OnInit {
    articles: Article[];
 
-   constructor(private _articleService: ArticleService) {
+   articleForm: ControlGroup;
+//    tworzymy articleForm i przypisujemy ControlGroup (grupa kontrolek)
 
+    // definujemy kontrolki - pola formularza
+    title: Control = new Control();
+    link: Control = new Control();
+    description: Control = new Control();
+    image: Control = new Control();
+
+   constructor(private _articleService: ArticleService, fb: FormBuilder) {
+    // wstrzykiwanie zaleznosci
+    // instancja komponetu, uslugi artykolow fb: FormBuilder
+    // grupujemy 4 kontrolki
+    // okreslami wlasciwosci tych 4 elementow
+    // definicja kontrolek
+    this.articleForm = fb.group({
+        'title': this.title,
+        'link': this.link,
+        'description': this.description,
+        'image': this.image
+    })
    }
 
    getArticles() {
