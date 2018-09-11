@@ -5,6 +5,8 @@ import {Injectable} from 'angular2/core';
 
 export class ArticleService {
     getArticles() {
-        return ARTICLES;
+        return Promise.resolve(ARTICLES);
     }
+    // Obietnica gdy lista artykuow będzie opozniana lub nie ladowana
+    // Asynchroniczna usluga
 }

@@ -29,7 +29,11 @@ System.register(['angular2/core', './article.component', './article.service'], f
                     this._articleService = _articleService;
                 }
                 AppComponent.prototype.getArticles = function () {
-                    this.articles = this._articleService.getArticles();
+                    var _this = this;
+                    this._articleService.getArticles().then(function (articles) { return _this.articles = articles; });
+                    // Z article.service.ts implementacja w komponencie obietnicy
+                    // Co sie dzieje gdy obietnica nie spelniona / spelniona
+                    // Anonimowa funkcja
                 };
                 AppComponent.prototype.ngOnInit = function () {
                     this.getArticles();

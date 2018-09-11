@@ -21,7 +21,10 @@ export class AppComponent implements OnInit {
    }
 
    getArticles() {
-       this.articles = this._articleService.getArticles();
+       this._articleService.getArticles().then(articles => this.articles = articles);
+    // Z article.service.ts implementacja w komponencie obietnicy
+    // Co sie dzieje gdy obietnica nie spelniona / spelniona
+    // Anonimowa funkcja
    }
 
    ngOnInit() {

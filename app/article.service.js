@@ -25,7 +25,7 @@ System.register(['./article-data', 'angular2/core'], function(exports_1, context
                 function ArticleService() {
                 }
                 ArticleService.prototype.getArticles = function () {
-                    return article_data_1.ARTICLES;
+                    return Promise.resolve(article_data_1.ARTICLES);
                 };
                 ArticleService = __decorate([
                     core_1.Injectable(), 
