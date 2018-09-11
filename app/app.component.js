@@ -1,4 +1,4 @@
-System.register(['angular2/core', 'angular2/common', './article.component', './article.service'], function(exports_1, context_1) {
+System.register(['angular2/core', 'angular2/common', './article', './article.component', './article.service'], function(exports_1, context_1) {
     "use strict";
     var __moduleName = context_1 && context_1.id;
     var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -10,7 +10,7 @@ System.register(['angular2/core', 'angular2/common', './article.component', './a
     var __metadata = (this && this.__metadata) || function (k, v) {
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
     };
-    var core_1, common_1, article_component_1, article_service_1;
+    var core_1, common_1, article_1, article_component_1, article_service_1;
     var AppComponent;
     return {
         setters:[
@@ -19,6 +19,9 @@ System.register(['angular2/core', 'angular2/common', './article.component', './a
             },
             function (common_1_1) {
                 common_1 = common_1_1;
+            },
+            function (article_1_1) {
+                article_1 = article_1_1;
             },
             function (article_component_1_1) {
                 article_component_1 = article_component_1_1;
@@ -57,6 +60,20 @@ System.register(['angular2/core', 'angular2/common', './article.component', './a
                 };
                 AppComponent.prototype.ngOnInit = function () {
                     this.getArticles();
+                };
+                AppComponent.prototype.onSubmit = function () {
+                    //    z app.component.html 
+                    // co bedzie sie dzialo po klikniecu na przycisk
+                    // push - dodawanie nowej wartosci do tablicy
+                    // dodajemy nowy artykul
+                    // bedzie aktualizowalo zmienna articles
+                    this.articles.push(new article_1.Article(this.title.value, this.link.value, this.description.value, this.image.value));
+                    // reset pol - aby byly wartosci z pol czyszczone aby nic nie bylo po potwierdzeniu
+                    // odwolujemy sie do kontrolek
+                    this.title.updateValue("");
+                    this.link.updateValue("");
+                    this.description.updateValue("");
+                    this.image.updateValue("");
                 };
                 AppComponent = __decorate([
                     core_1.Component({

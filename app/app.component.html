@@ -1,10 +1,11 @@
 <!-- kontener formularza -->
 <div class="sk-form-container">
-    <form [ngFormModel]="articleForm">
+    <form [ngFormModel]="articleForm" (ngSubmit)="onSubmit()">
         <!-- zestaw kontrolek articleForm -->
+        <!-- ngSubmit i nazwa funkcji (wlasna nazwa) ktora bedzie przetwarzala dane z formularza aktualziowala model -->
         <h3>Dodaj nowy artykuł</h3>
         <div class="ui form">
-          <div class="field ui error">
+          <div class="field ui">
               <label>Tytuł:</label>
               <input type="text" name="title" [ngFormControl]="articleForm.controls['title']" />
               <!-- definujemy kontrolke, wiazemy elementy w tej grupie, kazdy input do kontrolki. Najpierw do grupy, pozniej do kontrolek i do poszczegolnej kontrolki -->
@@ -21,7 +22,8 @@
               <label>Obrazek (link):</label>
               <input type="text" name="image" [ngFormControl]="articleForm.controls['image']" />
           </div>
-          <div class="positive ui large button">Dodaj</div>
+          <button type="submit" class="positive ui large button">Dodaj</button>
+          <!-- potrzebny przycisk zamiast div aby dzialalo -->
         </div>
     </form>
 </div>

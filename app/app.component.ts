@@ -55,6 +55,22 @@ export class AppComponent implements OnInit {
    ngOnInit() {
        this.getArticles();
    }
+
+   onSubmit() {
+    //    z app.component.html 
+    // co bedzie sie dzialo po klikniecu na przycisk
+    // push - dodawanie nowej wartosci do tablicy
+    // dodajemy nowy artykul
+    // bedzie aktualizowalo zmienna articles
+    this.articles.push(new Article(this.title.value, this.link.value, this.description.value, this.image.value));
+
+    // reset pol - aby byly wartosci z pol czyszczone aby nic nie bylo po potwierdzeniu
+    // odwolujemy sie do kontrolek
+    this.title.updateValue("");
+    this.link.updateValue("");
+    this.description.updateValue("");
+    this.image.updateValue("");
+   }
  
 }
 // npm start
