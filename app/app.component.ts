@@ -14,14 +14,14 @@ import {ArticleService} from './article.service';
 
 @Component({
     selector: 'articles',
-    directives: [ArticleComponent],
+    directives: [ArticleComponent, FORM_DIRECTIVES],
     providers: [ArticleService],
     templateUrl: 'app/app.component.html'
 })
 
 export class AppComponent implements OnInit {
    articles: Article[];
-
+// articleForm powiazany z app.component.html
    articleForm: ControlGroup;
 //    tworzymy articleForm i przypisujemy ControlGroup (grupa kontrolek)
 

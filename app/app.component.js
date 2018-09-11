@@ -61,7 +61,7 @@ System.register(['angular2/core', 'angular2/common', './article.component', './a
                 AppComponent = __decorate([
                     core_1.Component({
                         selector: 'articles',
-                        directives: [article_component_1.ArticleComponent],
+                        directives: [article_component_1.ArticleComponent, common_1.FORM_DIRECTIVES],
                         providers: [article_service_1.ArticleService],
                         templateUrl: 'app/app.component.html'
                     }), 

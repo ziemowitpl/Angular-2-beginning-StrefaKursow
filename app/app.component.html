@@ -1,23 +1,25 @@
 <!-- kontener formularza -->
 <div class="sk-form-container">
-    <form action="">
+    <form [ngFormModel]="articleForm">
+        <!-- zestaw kontrolek articleForm -->
         <h3>Dodaj nowy artykuł</h3>
         <div class="ui form">
           <div class="field ui error">
               <label>Tytuł:</label>
-              <input type="text" name="title" />
+              <input type="text" name="title" [ngFormControl]="articleForm.controls['title']" />
+              <!-- definujemy kontrolke, wiazemy elementy w tej grupie, kazdy input do kontrolki. Najpierw do grupy, pozniej do kontrolek i do poszczegolnej kontrolki -->
           </div>
           <div class="field">
               <label>Link:</label>
-              <input type="text" name="link" />
+              <input type="text" name="link" [ngFormControl]="articleForm.controls['link']" />
           </div>
           <div class="field">
               <label>Opis (max 120 znaków):</label>
-              <input type="text" name="description" />
+              <input type="text" name="description" [ngFormControl]="articleForm.controls['description']" />
           </div>
           <div class="field">
               <label>Obrazek (link):</label>
-              <input type="text" name="image" />
+              <input type="text" name="image" [ngFormControl]="articleForm.controls['image']" />
           </div>
           <div class="positive ui large button">Dodaj</div>
         </div>
