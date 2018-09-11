@@ -9,7 +9,7 @@
               <label>Tytuł:</label>
               <input type="text" name="title" [ngFormControl]="articleForm.controls['title']" />
               <!-- definujemy kontrolke, wiazemy elementy w tej grupie, kazdy input do kontrolki. Najpierw do grupy, pozniej do kontrolek i do poszczegolnej kontrolki -->
-              <!-- Walidacja formularza wyswietlanie kalsy error (czerwonego obramowania) - klasa error: warunek(gdy nie jest zwalidowane - w formularzu znajdujemy(find): 'title') i warunek drugi mowi ze pole zostalo aktywowane i nie zwalidowane - touched -->
+              <!-- Walidacja formularza wyswietlanie klasy [ngClass] error (czerwonego obramowania) - klasa error: warunek(gdy nie jest zwalidowane - w formularzu znajdujemy(find): 'title') i warunek drugi mowi ze pole zostalo aktywowane i nie zwalidowane - touched -->
 
           </div>
           <div class="field ui" [ngClass]="{error: !articleForm.find('link').valid && articleForm.find('link').touched}">

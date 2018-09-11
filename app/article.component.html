@@ -19,9 +19,11 @@
                 <div class="fourteen wide column">
                     <img src="{{ article.image }}" alt="obraz">
                     <div class="sk-list-item-right">
-                        <h4>{{ article.title }}</h4>
+                        <h4>{{ article.title | uppercase }}</h4>
+                        <!-- wprowadzamy znak pipe "|" i wpisujemy nazwe filtru: tutaj uppercase - duze litery mozna lowercase - male litery -->
                         <span class="label">{{ article.link }}</span>
-                        <p>{{ article.description}}</p> 									
+                        <p>{{ article.description | slice:0:30}}</p> 
+                        <!-- filtr slice obcina znaki od 0 do 30 wyswietla reszte ucina									 -->
                     </div>
                 </div>
             </div>
