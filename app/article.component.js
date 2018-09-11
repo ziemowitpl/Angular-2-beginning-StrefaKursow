@@ -1,4 +1,4 @@
-System.register(['angular2/core'], function(exports_1, context_1) {
+System.register(['angular2/core', './multiply-votes-pipe'], function(exports_1, context_1) {
     "use strict";
     var __moduleName = context_1 && context_1.id;
     var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -10,14 +10,18 @@ System.register(['angular2/core'], function(exports_1, context_1) {
     var __metadata = (this && this.__metadata) || function (k, v) {
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
     };
-    var core_1;
+    var core_1, multiply_votes_pipe_1;
     var ArticleComponent;
     return {
         setters:[
             function (core_1_1) {
                 core_1 = core_1_1;
+            },
+            function (multiply_votes_pipe_1_1) {
+                multiply_votes_pipe_1 = multiply_votes_pipe_1_1;
             }],
         execute: function() {
+            // dodajemy klase wlasnego pipe
             ArticleComponent = (function () {
                 function ArticleComponent() {
                 }
@@ -36,7 +40,8 @@ System.register(['angular2/core'], function(exports_1, context_1) {
                         host: {
                             class: 'singlearticle'
                         },
-                        templateUrl: 'app/article.component.html'
+                        templateUrl: 'app/article.component.html',
+                        pipes: [multiply_votes_pipe_1.MultiplyVotesPipe]
                     }), 
                     __metadata('design:paramtypes', [])
                 ], ArticleComponent);

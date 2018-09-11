@@ -1,5 +1,7 @@
 import {Component} from 'angular2/core';
 import {Article} from './article';
+import {MultiplyVotesPipe} from './multiply-votes-pipe';
+// dodajemy klase wlasnego pipe
 
 @Component({
     selector: 'single-article',
@@ -7,7 +9,9 @@ import {Article} from './article';
     host: {
         class: 'singlearticle'
     },
-    templateUrl: 'app/article.component.html'
+    templateUrl: 'app/article.component.html',
+    pipes: [MultiplyVotesPipe]
+    // w dekoratorze Componment okreslamy z jakich pipe bedzie korzystal i dodajemy w nawiasie nazwe klasy
 })
 
 export class ArticleComponent {
